@@ -3,5 +3,8 @@ from django.http import HttpResponse
 
 # Create your views here.
 
+#def index(request):
+#    return HttpResponse("Portfolio Home Page")
+
 def index(request):
-    return HttpResponse("Portfolio Home Page")
+    return render(request, 'portfolio_app/index.html')

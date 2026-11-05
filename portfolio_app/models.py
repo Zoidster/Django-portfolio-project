@@ -29,9 +29,16 @@ class Portfolio(models.Model):
     def __str__(self):
         return self.title
 
+    
+    def status(self):
+        if (self.is_active):
+            return "Active"
+        else:
+            return "Not Active"
+
 
 class Project(models.Model):                                          
-    portfolio = models.ForeignKey( Portfolio, on_delete=models.CASCADE)
+    portfolio = models.ForeignKey( Portfolio, on_delete=models.CASCADE) # Related name addition (should) allow template access
     title = models.CharField(max_length = 200)
     description = models.TextField(blank=True)
 

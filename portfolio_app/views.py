@@ -21,4 +21,28 @@ def index(request):
         request,
         'portfolio_app/index.html',
         {'active_portfolios': active_portfolios}
-    )
+    )                                                      #3rd in slides
+
+from django.views.generic import ListView, DetailView
+from .models import Student
+from .models import Project
+
+class StudentListView(ListView):
+    model = Student
+    template_name = 'portfolio_app/student_list.html'
+    context_object_name = 'students'
+
+class StudentDetailView(DetailView):
+    model = Student
+    template_name = 'portfolio_app/student_detail.html'
+    context_object_name = 'student'
+
+class PortfolioDetailView(DetailView):
+    model = Portfolio
+    template_name = 'portfolio_app/portfolio_detail.html'
+    context_object_name = 'portfolio'
+
+class ProjectListView(ListView):
+    model = Project
+    template_name = 'portfolio_app/portfolio_detail.html'
+    context_object_name = 'projects'
